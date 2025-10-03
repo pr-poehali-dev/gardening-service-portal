@@ -116,62 +116,74 @@ export default function Index() {
         </div>
       </nav>
 
-      <section id="home" className="pt-24 pb-16 bg-gradient-to-b from-secondary to-white">
-        <div className="container mx-auto px-4">
+      <section id="home" className="pt-24 pb-20 bg-gradient-to-br from-secondary via-white to-primary/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/img/8a970793-43e2-4c8d-86a2-68a5cfb7ade3.jpg')] opacity-5 bg-cover bg-center"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-                Создаём сады вашей мечты
+              <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-6">
+                <p className="text-primary font-semibold text-sm">🌱 Экологичные решения для вашего сада</p>
+              </div>
+              <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight">
+                Создаём сады вашей <span className="text-primary">мечты</span>
               </h1>
-              <p className="text-xl text-muted-foreground mb-8">
-                Профессиональный уход за садом и ландшафтный дизайн с заботой о природе
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                Профессиональный уход за садом с заботой о природе. Индивидуальный подход к каждому проекту.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button size="lg" onClick={() => scrollToSection('services')}>
+                <Button size="lg" className="text-lg px-8 py-6" onClick={() => scrollToSection('services')}>
                   Наши услуги
+                  <Icon name="ArrowRight" className="ml-2" size={20} />
                 </Button>
-                <Button size="lg" variant="outline" onClick={() => scrollToSection('contacts')}>
+                <Button size="lg" variant="outline" className="text-lg px-8 py-6" onClick={() => scrollToSection('contacts')}>
                   Связаться с нами
                 </Button>
               </div>
             </div>
-            <div className="animate-slide-up">
+            <div className="animate-slide-up relative">
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-primary/20 rounded-full blur-3xl"></div>
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
               <img 
                 src="/img/8a970793-43e2-4c8d-86a2-68a5cfb7ade3.jpg" 
                 alt="Красивый сад" 
-                className="rounded-lg shadow-2xl"
+                className="rounded-2xl shadow-2xl relative z-10 border-4 border-white"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section id="services" className="py-16 bg-white">
+      <section id="services" className="py-20 bg-white relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Наши услуги</h2>
-            <p className="text-xl text-muted-foreground">
-              Полный спектр услуг по уходу за садом и ландшафтному дизайну
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
+              <p className="text-primary font-semibold text-sm">ЧТО МЫ ПРЕДЛАГАЕМ</p>
+            </div>
+            <h2 className="text-5xl font-bold mb-6">Наши услуги</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Полный спектр услуг по уходу за садом с гарантией качества
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow animate-slide-up">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
-                    <Icon name={service.icon} size={32} className="text-primary" />
+              <Card key={index} className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up border-2 hover:border-primary/50 overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                <CardHeader className="relative">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Icon name={service.icon} size={36} className="text-white" />
                   </div>
-                  <CardTitle>{service.title}</CardTitle>
-                  <CardDescription>{service.description}</CardDescription>
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
+                  <CardDescription className="text-base">{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Accordion type="single" collapsible>
                     <AccordionItem value="details" className="border-none">
-                      <AccordionTrigger className="text-primary font-semibold">
+                      <AccordionTrigger className="text-primary font-bold text-lg hover:no-underline">
                         {service.price}
+                        <Icon name="ChevronDown" className="ml-2" />
                       </AccordionTrigger>
                       <AccordionContent>
-                        <p className="text-muted-foreground">{service.details}</p>
+                        <p className="text-muted-foreground leading-relaxed">{service.details}</p>
                       </AccordionContent>
                     </AccordionItem>
                   </Accordion>
@@ -182,11 +194,14 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="about" className="py-16 bg-secondary">
+      <section id="about" className="py-20 bg-gradient-to-br from-secondary to-primary/5 relative">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
-              <h2 className="text-4xl font-bold mb-6">О нас</h2>
+              <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
+                <p className="text-primary font-semibold text-sm">НАША ИСТОРИЯ</p>
+              </div>
+              <h2 className="text-5xl font-bold mb-6">О нас</h2>
               <p className="text-lg text-muted-foreground mb-4">
                 Мы — команда профессионалов, влюбленных в свое дело. Уже более 5 лет помогаем создавать 
                 и поддерживать красивые сады по всей России.
@@ -196,43 +211,53 @@ export default function Index() {
                 Мы используем только экологичные материалы и современные технологии.
               </p>
               <div className="grid grid-cols-3 gap-6 mt-8">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">500+</div>
-                  <div className="text-sm text-muted-foreground">Довольных клиентов</div>
+                <div className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-5xl font-bold text-primary mb-2">500+</div>
+                  <div className="text-sm font-medium text-muted-foreground">Довольных клиентов</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">5</div>
-                  <div className="text-sm text-muted-foreground">Лет опыта</div>
+                <div className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-5xl font-bold text-primary mb-2">5</div>
+                  <div className="text-sm font-medium text-muted-foreground">Лет опыта</div>
                 </div>
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">95%</div>
-                  <div className="text-sm text-muted-foreground">Гарантия качества</div>
+                <div className="text-center bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="text-5xl font-bold text-primary mb-2">95%</div>
+                  <div className="text-sm font-medium text-muted-foreground">Гарантия качества</div>
                 </div>
               </div>
             </div>
             <div className="animate-slide-up">
-              <div className="bg-white rounded-lg p-8 shadow-xl">
-                <h3 className="text-2xl font-bold mb-4">Почему выбирают нас?</h3>
-                <div className="space-y-4">
-                  <div className="flex gap-3">
-                    <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" />
-                    <p>Профессиональная команда с опытом работы более 5 лет</p>
+              <div className="bg-white rounded-2xl p-10 shadow-2xl border-2 border-primary/10">
+                <h3 className="text-3xl font-bold mb-6 text-primary">Почему выбирают нас?</h3>
+                <div className="space-y-5">
+                  <div className="flex gap-4 items-start group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all">
+                      <Icon name="CheckCircle2" className="text-primary group-hover:text-white" size={20} />
+                    </div>
+                    <p className="text-lg leading-relaxed">Профессиональная команда с опытом работы более 5 лет</p>
                   </div>
-                  <div className="flex gap-3">
-                    <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" />
-                    <p>Использование только экологичных материалов</p>
+                  <div className="flex gap-4 items-start group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all">
+                      <Icon name="CheckCircle2" className="text-primary group-hover:text-white" size={20} />
+                    </div>
+                    <p className="text-lg leading-relaxed">Использование только экологичных материалов</p>
                   </div>
-                  <div className="flex gap-3">
-                    <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" />
-                    <p>Индивидуальный подход к каждому проекту</p>
+                  <div className="flex gap-4 items-start group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all">
+                      <Icon name="CheckCircle2" className="text-primary group-hover:text-white" size={20} />
+                    </div>
+                    <p className="text-lg leading-relaxed">Индивидуальный подход к каждому проекту</p>
                   </div>
-                  <div className="flex gap-3">
-                    <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" />
-                    <p>Гарантия на все виды работ</p>
+                  <div className="flex gap-4 items-start group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all">
+                      <Icon name="CheckCircle2" className="text-primary group-hover:text-white" size={20} />
+                    </div>
+                    <p className="text-lg leading-relaxed">Гарантия на все виды работ</p>
                   </div>
-                  <div className="flex gap-3">
-                    <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" />
-                    <p>Доступные цены и гибкая система скидок</p>
+                  <div className="flex gap-4 items-start group hover:bg-primary/5 p-3 rounded-lg transition-colors">
+                    <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all">
+                      <Icon name="CheckCircle2" className="text-primary group-hover:text-white" size={20} />
+                    </div>
+                    <p className="text-lg leading-relaxed">Доступные цены и гибкая система скидок</p>
                   </div>
                 </div>
               </div>
@@ -241,27 +266,32 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="testimonials" className="py-16 bg-white">
+      <section id="testimonials" className="py-20 bg-white relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Отзывы наших клиентов</h2>
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
+              <p className="text-primary font-semibold text-sm">ЧТО ГОВОРЯТ КЛИЕНТЫ</p>
+            </div>
+            <h2 className="text-5xl font-bold mb-4">Отзывы наших клиентов</h2>
             <p className="text-xl text-muted-foreground">
               Что говорят о нас те, кто уже доверил нам свой сад
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="animate-slide-up">
-                <CardHeader>
-                  <div className="flex gap-1 mb-2">
+              <Card key={index} className="animate-slide-up hover:shadow-2xl transition-all duration-300 border-2 hover:border-primary/30 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                <CardHeader className="relative">
+                  <div className="flex gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Icon key={i} name="Star" size={20} className="text-yellow-500 fill-yellow-500" />
+                      <Icon key={i} name="Star" size={24} className="text-yellow-400 fill-yellow-400 drop-shadow-sm" />
                     ))}
                   </div>
-                  <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                  <CardTitle className="text-xl font-bold">{testimonial.name}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground italic">"{testimonial.text}"</p>
+                <CardContent className="relative">
+                  <Icon name="Quote" size={40} className="text-primary/10 absolute -top-2 -left-2" />
+                  <p className="text-muted-foreground italic text-base leading-relaxed relative z-10">"{testimonial.text}"</p>
                 </CardContent>
               </Card>
             ))}
@@ -269,30 +299,40 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="blog" className="py-16 bg-secondary">
+      <section id="blog" className="py-20 bg-gradient-to-br from-secondary to-white relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Блог</h2>
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
+              <p className="text-primary font-semibold text-sm">ПОЛЕЗНЫЕ СОВЕТЫ</p>
+            </div>
+            <h2 className="text-5xl font-bold mb-4">Блог</h2>
             <p className="text-xl text-muted-foreground">
               Полезные советы по уходу за садом
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {blogPosts.map((post, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow animate-slide-up">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-48 object-cover"
-                />
+              <Card key={index} className="overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up border-2 hover:border-primary/30 group">
+                <div className="relative overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt={post.title} 
+                    className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
                 <CardHeader>
-                  <div className="text-sm text-muted-foreground mb-2">{post.date}</div>
-                  <CardTitle className="text-xl">{post.title}</CardTitle>
+                  <div className="flex items-center gap-2 text-sm text-primary font-semibold mb-2">
+                    <Icon name="Calendar" size={16} />
+                    {post.date}
+                  </div>
+                  <CardTitle className="text-2xl group-hover:text-primary transition-colors">{post.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{post.preview}</p>
-                  <Button variant="link" className="p-0">
-                    Читать далее →
+                  <p className="text-muted-foreground mb-6 leading-relaxed">{post.preview}</p>
+                  <Button variant="link" className="p-0 text-primary font-semibold group-hover:gap-2 transition-all">
+                    Читать далее
+                    <Icon name="ArrowRight" size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
               </Card>
@@ -301,16 +341,19 @@ export default function Index() {
         </div>
       </section>
 
-      <section id="contacts" className="py-16 bg-white">
+      <section id="contacts" className="py-20 bg-white relative">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl font-bold mb-4">Контакты</h2>
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-block px-4 py-2 bg-primary/10 rounded-full mb-4">
+              <p className="text-primary font-semibold text-sm">СВЯЗАТЬСЯ С НАМИ</p>
+            </div>
+            <h2 className="text-5xl font-bold mb-4">Контакты</h2>
             <p className="text-xl text-muted-foreground">
               Свяжитесь с нами удобным способом
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <Card className="animate-slide-up">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <Card className="animate-slide-up shadow-xl border-2 hover:border-primary/30 transition-all">
               <CardHeader>
                 <CardTitle>Наши контакты</CardTitle>
               </CardHeader>
@@ -345,7 +388,7 @@ export default function Index() {
                 </div>
               </CardContent>
             </Card>
-            <Card className="animate-slide-up">
+            <Card className="animate-slide-up shadow-xl border-2 hover:border-primary/30 transition-all">
               <CardHeader>
                 <CardTitle>Напишите нам</CardTitle>
                 <CardDescription>Мы ответим в течение 24 часов</CardDescription>
@@ -383,7 +426,8 @@ export default function Index() {
         </div>
       </section>
 
-      <footer className="bg-primary text-primary-foreground py-8">
+      <footer className="bg-gradient-to-r from-primary to-accent text-primary-foreground py-12 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/img/8a970793-43e2-4c8d-86a2-68a5cfb7ade3.jpg')] opacity-5 bg-cover bg-center"></div>
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-2">
