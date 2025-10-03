@@ -188,7 +188,7 @@ export default function Index() {
             <div className="animate-fade-in">
               <h2 className="text-4xl font-bold mb-6">О нас</h2>
               <p className="text-lg text-muted-foreground mb-4">
-                Мы — команда профессионалов, влюбленных в свое дело. Уже более 10 лет помогаем создавать 
+                Мы — команда профессионалов, влюбленных в свое дело. Уже более 5 лет помогаем создавать 
                 и поддерживать красивые сады по всей России.
               </p>
               <p className="text-lg text-muted-foreground mb-4">
@@ -201,11 +201,11 @@ export default function Index() {
                   <div className="text-sm text-muted-foreground">Довольных клиентов</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">10</div>
+                  <div className="text-4xl font-bold text-primary mb-2">5</div>
                   <div className="text-sm text-muted-foreground">Лет опыта</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-primary mb-2">100%</div>
+                  <div className="text-4xl font-bold text-primary mb-2">95%</div>
                   <div className="text-sm text-muted-foreground">Гарантия качества</div>
                 </div>
               </div>
@@ -216,7 +216,7 @@ export default function Index() {
                 <div className="space-y-4">
                   <div className="flex gap-3">
                     <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" />
-                    <p>Профессиональная команда с опытом работы более 10 лет</p>
+                    <p>Профессиональная команда с опытом работы более 5 лет</p>
                   </div>
                   <div className="flex gap-3">
                     <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" />
