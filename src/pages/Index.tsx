@@ -132,7 +132,7 @@ export default function Index() {
       </nav>
 
       <section id="home" className="pt-24 pb-20 bg-gradient-to-br from-secondary via-white to-primary/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/img/8a970793-43e2-4c8d-86a2-68a5cfb7ade3.jpg')] opacity-5 bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1588773119486-07b5cc85e762?w=1920&q=80')] opacity-15 bg-cover bg-center"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in">
