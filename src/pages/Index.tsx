@@ -16,16 +16,16 @@ export default function Index() {
     {
       icon: 'Scissors',
       title: 'Стрижка газона',
-      description: 'Профессиональная стрижка и уход за газоном',
+      description: 'Аккуратная стрижка и уход за газоном',
       price: 'от 500 ₽/м²',
-      details: 'Регулярная стрижка, выравнивание краев, уборка скошенной травы. Используем профессиональное оборудование для идеального результата.'
+      details: 'Регулярная стрижка, выравнивание краев, уборка скошенной травы. Работаем качественным оборудованием.'
     },
     {
       icon: 'TreeDeciduous',
       title: 'Посадка деревьев',
       description: 'Подбор и высадка деревьев',
       price: 'от 2500 ₽',
-      details: 'Консультация по выбору деревьев, подготовка посадочных ям, профессиональная посадка с учетом особенностей участка и климата.'
+      details: 'Помогаем выбрать деревья, подготавливаем ямы, высаживаем с учетом особенностей участка и климата.'
     },
     {
       icon: 'Leaf',
@@ -143,7 +143,7 @@ export default function Index() {
                 Создаём сады вашей <span className="text-primary">мечты</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Профессиональный уход за садом с заботой о природе. Индивидуальный подход к каждому проекту.
+                Качественный уход за садом с заботой о природе. Делаем работу добросовестно и с душой.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" className="text-lg px-8 py-6" onClick={() => scrollToSection('services')}>
@@ -176,7 +176,7 @@ export default function Index() {
             </div>
             <h2 className="text-5xl font-bold mb-6">Наши услуги</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Полный спектр услуг по уходу за садом с гарантией качества
+              Помогаем с садом: стрижка, посадка, обрезка и регулярный уход
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
